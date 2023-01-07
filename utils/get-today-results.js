@@ -3,7 +3,7 @@ const data = require("../data/data.json");
 const bolitaFetcher = require("./bolita-fetcher");
 
 function writeToFile(data) {
-  fs.appendFile(`../data/data.json`, JSON.stringify(data), function (err) {
+  fs.writeFile(`data/data.json`, JSON.stringify(data), function (err) {
     if (err) throw err;
     console.log(`Saved!`);
   });
@@ -24,7 +24,8 @@ async function run() {
     if (!is) addData.push(result);
   });
   allData = [...addData, ...allData];
-  writeToFile(allData);
+  if(allData.length != data.length) writeToFile(allData);
+  console.log(newData);
 }
 
 run();
