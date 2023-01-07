@@ -18,7 +18,6 @@ async function run() {
   for (let page = 1; page < 2; page++){
     const data = await fetchData(page);
     allData = [...allData, ...data];
-    console.log(allData.length);
   }
   writeToFile(allData);
 }
