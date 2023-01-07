@@ -1,4 +1,4 @@
-const getResults = require("../services/getResults");
+const getResults = require("../services/get-results");
 
 exports.handler = async function (event) {
   try {

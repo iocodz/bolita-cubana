@@ -16,7 +16,7 @@ module.exports = async function getResults(event) {
     pagination: {
       page: parseInt(page),
       limit: parseInt(limit),
-      totalItems: results.length,
+      totalCount: results.length,
       totalPages: parseInt(results.length / limit) + 1,
     },
     results: resultsPaginated
