@@ -1,6 +1,7 @@
 const fs = require("fs");
 const data = require("../data/data.json");
 const bolitaFetcher = require("./bolita-fetcher");
+const clearResult = require("./clear-result");
 
 function writeToFile(data) {
   fs.writeFile(`data/data.json`, JSON.stringify(data), function (err) {
@@ -17,7 +18,8 @@ function fetchData() {
 
 async function run() {
   const nowResult = await fetchData();
-  if (data.indexOf(nowResult) === -1) writeToFile([...nowResult, ...data]);
+  const r = clearResult(nowResult[0]);
+  if (data.indexOf(r) == -1) writeToFile([r, ...data]);
 }
 
 run();
