@@ -10,22 +10,14 @@ function writeToFile(data) {
 }
 
 function fetchData() {
-  return bolitaFetcher(1, 3)
+  return bolitaFetcher(1, 1)
     .then((res) => res.json())
     .then((data) => data.result);
 }
 
 async function run() {
-  let allData = data;
-  const newData = await fetchData();
-  const addData = [];
-  newData.map((result) => {
-    const is = allData.filter((item) => item.id === result.id);
-    if (!is) addData.push(result);
-  });
-  allData = [...addData, ...allData];
-  if(allData.length != data.length) writeToFile(allData);
-  console.log(newData);
+  const nowResult = await fetchData();
+  if (data.indexOf(nowResult) === -1) writeToFile([...nowResult, ...data]);
 }
 
 run();
