@@ -35,6 +35,7 @@ jobs:
         with:
           token: ${{ github.token }}
           title: Action workflow failed.
+          labels: bug
           body: |
             ### Context
             [Failed Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
