@@ -8,8 +8,8 @@ on:
       - webhook
 
   schedule:
-    - cron: "25 1 * * *"
-    - cron: "40 9 * * *"
+    - cron: "0 2 * * *"
+    - cron: "5 10 * * *"
 
 jobs:
   build:
